@@ -45,3 +45,16 @@ p{
     font-size: 150%;
     color: rgb(29, 39, 30)
 }
+
+.login-form{
+    background-color: rgb(119, 151, 125);
+    font-size: 150%;
+    color: rgb(29, 39, 30)
+}
+
+.login-form a{
+    font-size: 150%;
+    font-weight: 200%;
+    font-family: verdana, sans-serif;
+    color: rgb(29, 39, 30)
+}
