@@ -4,7 +4,7 @@ $is_invalid = false;
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 
-    $mysqli = require __DIR__ . "php/Database.php";
+    $mysqli = require __DIR__ . "\php\Database.php";
 
     $sql = sprintf("SELECT * FROM guest 
                     WHERE Email = '%s'",
@@ -15,8 +15,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $user = $result->fetch_assoc();
 
     if($user){
-        if(password_verify($_POST["password"], $user["password_hash"])){
-            die("Login successful");
+        if(password_verify($_POST["password"], $user["Password"])){
+            
+            session_start();
+
+            $_SESSION["user_id"] = $user["GuestID"];
+
+            header("Location: index.php");
         }
     }
     $is_invalid = true;
@@ -36,7 +41,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             <a href="about_us.html">About Us</a>
             <a href="Contact Us.html">Contact</a>
             <a href="Locations.html">Locations</a>
-            <a class="active" href="Login.php">Login</a>
+            <a class="active" href="login.php">Login</a>
+            <a href="index.php">Dashboard</a>
         </div>
 
         <div class="login">
@@ -45,13 +51,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             <?php if($is_invalid): ?>
                 <em>Invalid login</em>
             <?php endif; ?>
-            <form action="Login Process.php" method="post">
-                <Label>Email</Label>
+            <form method="post">
+                <Label for="Email">Email</Label>
                 <input type="email" name="Email" placeholder="Email" required value="<?=  htmlspecialchars($_POST["Email"] ?? "" )?>">
                 <br><br>
-                <Label>Password</Label>
+                <Label for="password">Password</Label>
                 <input type="password" name="password" placeholder="Password" required><br><br>
-                <input type="submit" value="Login">
+                <button>Login</button>
             
         </div>
 
