@@ -6,10 +6,78 @@
     </head>
     <div class="topnav">
          <a href="HTML Front page.html">Home</a>
-        <a class="active" href="Booking.html">Book</a>
-        <a href="about_us.html">About Us</a>
-        <a href="Contact Us.html">Contact</a>
-        <a href="Locations.html">Locations</a>
-        <a href="Login.html">Login</a>
+         <a class="active" href="Booking.html">Book</a>
+         <a href="about_us.html">About Us</a>
+         <a href="Contact Us.html">Contact</a>
+         <a href="Locations.html">Locations</a>
+         <a href="Login.html">Login</a>
     </div>
+<body>
+    <div class="Reservation-Form">
+     <h2>Selection</h2>
+        <div>
+             <form action="php/Rfunctions.php" method="post">
+                <h3>Name of Reservation</h3>
+                <label for="FName">First Name</label>
+                <br>
+                <input type="text" id="FName" placeholder="Enter your First Name">
+                <br>
+                <label for="LName">Last Name</label>
+                <br>
+                <input type="text" id="LName"placeholder="Enter your Last Name">
+
+            <div id="group1">
+                <h3>Hotel</h3>    
+                <input type="radio" id="King Hotel" name="group1" value="King Hotel">
+                <label for="King Hotel">King Hotel</label><br>
+                <input type="radio" id="Queen Hotel" name="group1" value="Queen Hotel">
+                <label for="Queen Hotel">Queen Hotel</label><br>
+                <input type="radio" id="York Hotel" name="group1" value="York Hotel">
+                <label for="York Hotel">York Hotel</label>
+                <br>
+                <input type="radio" id="Lakeshore Hotel" name="group1" value="Lakeshore Hotel">
+                <label for="Lakeshore Hotel">Lakeshore Hotel</label><br>
+                <input type="radio" id="Main Hotel" name="group1" value="Main Hotel">
+                <label for="Main Hotel">Main Hotel</label><br>
+                <input type="radio" id="Bay Hotel" name="group1" value="Bay Hotel">
+                <label for="Bay Hotel">Bay Hotel</label>
+                <br><br>
+            </div>
+
+            <div id="group2">
+                <h3>Room Type</h3>
+                <input type="radio" id="Room" name="group2" value="Single">
+                <label for="Single">Single</label><br>
+                <input type="radio" id="Double" name="group2" value="Double">
+                <label for="Double">Double</label><br>
+                <input type="radio" id="Suite" name="group2" value="Suite">
+                <label for="Suite">Suite</label><br>
+                <input type="radio" id="Family" name="group2" value="Family">
+                <label for="Family">Family</label><br>
+                <input type="radio" id="Deluxe" name="group2" value="Deluxe">
+                <label for="Deluxe">Deluxe</label><br>
+                <input type="radio" id="Penthouse" name="group2" value="Penthouse">
+                <label for="Penthouse">Penthouse</label>
+                <br><br>
+            </div>
+
+                <h3>Number of People</h3>
+                <input type="text" id="numPeople" placeholder="How many people">
+              
+    
+                <h3>Start to End date</h3>
+                <label for="Start">Start:</label>
+                <input type="date" id="Start" name="Start">
+                <label for="End">End:</label>
+                <input type="date" id="End" name="End">
+                <br><br><br>
+            
+                <input type="submit" value="Submit Reservation">
+            
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
