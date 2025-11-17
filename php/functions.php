@@ -34,9 +34,19 @@
                         $_POST["DateofBirth"],
                         $password_hash);
 
-    $stmt->execute();
+    if($stmt->execute()){
+         header("Location: ../signup_success.html");
+         exit;
+    } else{
+        
+        if($mysqli->errno === 1062){
+            die("Email already taken");
+        } else {
+        die($mysqli->error . " " . $mysqli->errno);
+    }
+}
 
     
-    echo "Sign-up successful! You can now log in.";
+   
 
 
