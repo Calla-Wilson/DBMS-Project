@@ -1,5 +1,4 @@
-CREATE schema HotelDBMS;
-USE HotelDBMS;
+USE hotel_dbms;
 
 CREATE TABLE Hotel (
     HotelID INT PRIMARY KEY,
