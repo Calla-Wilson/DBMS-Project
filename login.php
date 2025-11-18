@@ -42,7 +42,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             <a href="Contact Us.html">Contact</a>
             <a href="Locations.html">Locations</a>
             <a class="active" href="login.php">Login</a>
-            <a href="index.php">Dashboard</a>
         </div>
 
         <div class="login">

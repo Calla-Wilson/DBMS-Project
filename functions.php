@@ -13,7 +13,7 @@
 
     $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $mysqli = require __DIR__ . "/Database.php";
+    $mysqli = require __DIR__ . "\php\Database.php";
     
 
     $sql = "INSERT INTO guest(FirstName, LastName, Addr, Email, PhoneNumber, DoB, Password)
@@ -35,7 +35,7 @@
                         $password_hash);
 
     if($stmt->execute()){
-         header("Location: ../signup_success.html");
+         header("Location: .. /signup_success.html");
          exit;
     } else{
         

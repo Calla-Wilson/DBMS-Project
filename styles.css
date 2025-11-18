@@ -4,6 +4,17 @@ body{
     border-radius: 8px;
 }
 
+.contact-us{
+    background-color: rgb(119, 151, 125);
+    font-size: 110%;
+    border-radius: 8px;
+    color: rgb(29, 39, 30); 
+    text-align: left;
+    margin: auto;
+    padding: 10px;
+}
+
+
 h1{
     background-color: rgb(119, 151, 125);
     font-size: 400%;
@@ -116,5 +127,4 @@ form input[type=date]{
     border-radius: 4px;
     box-sizing: border-box;
 }
-
 

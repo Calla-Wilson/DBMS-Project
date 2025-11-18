@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS hotel_dbms;
 USE hotel_dbms;
 
 CREATE TABLE Hotel (
@@ -29,9 +30,6 @@ CREATE TABLE RoomType (
     AvailabilityStatus BOOLEAN NOT NULL
 );
 
-ALTER TABLE Room
-ADD CONSTRAINT UNIQUE (PricePerNight);
-
 CREATE TABLE Room (
     RoomID INT PRIMARY KEY,
     RoomNum INT NOT NULL,
@@ -50,7 +48,8 @@ CREATE TABLE Guest (
     Addr VARCHAR(255) NOT NULL,
     Email VARCHAR(100),
     PhoneNumber BIGINT(15),
-    DoB DATE NOT NULL
+    DoB DATE NOT NULL,
+    Password VARCHAR(100)
 );
 --Reservation Table creation
 CREATE TABLE Reservation (
@@ -62,8 +61,7 @@ CREATE TABLE Reservation (
     NumGuests INT NOT NULL,
     PricePerNight DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (GuestID) REFERENCES Guest(GuestID),
-    FOREIGN KEY (RoomID) REFERENCES Room(RoomID),
-    FOREIGN Key (PricePerNight) REFERENCES Room(PricePerNight)
+    FOREIGN KEY (RoomID) REFERENCES Room(RoomID)
 );
 --Payemnt Table creation
 CREATE TABLE Payment (
