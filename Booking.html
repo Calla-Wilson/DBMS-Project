@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Booking</title>
+        <title>Hotel Travel</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <div class="topnav">
@@ -10,62 +10,48 @@
          <a href="about_us.html">About Us</a>
          <a href="Contact Us.html">Contact</a>
          <a href="Locations.html">Locations</a>
-         <a href="login.php">Login</a>
-         <a href="index.php">Dashboard</a>
+         <a href="Login.html">Login</a>
     </div>
 <body>
     <div class="Reservation-Form">
      <h2>Selection</h2>
         <div>
              <form action="php/Rfunctions.php" method="post">
+
                 <h3>Name of Reservation</h3>
                 <label for="FName">First Name</label>
                 <br>
-                <input type="text" id="FName" placeholder="Enter your First Name">
+                <input type="text" id="FName" name="FName" placeholder="Enter your First Name">
                 <br>
                 <label for="LName">Last Name</label>
                 <br>
-                <input type="text" id="LName"placeholder="Enter your Last Name">
+                <input type="text" id="LName" name="LName" placeholder="Enter your Last Name">
 
-            <div id="group1">
                 <h3>Hotel</h3>    
-                <input type="radio" id="King Hotel" name="group1" value="King Hotel">
-                <label for="King Hotel">King Hotel</label><br>
-                <input type="radio" id="Queen Hotel" name="group1" value="Queen Hotel">
-                <label for="Queen Hotel">Queen Hotel</label><br>
-                <input type="radio" id="York Hotel" name="group1" value="York Hotel">
-                <label for="York Hotel">York Hotel</label>
-                <br>
-                <input type="radio" id="Lakeshore Hotel" name="group1" value="Lakeshore Hotel">
-                <label for="Lakeshore Hotel">Lakeshore Hotel</label><br>
-                <input type="radio" id="Main Hotel" name="group1" value="Main Hotel">
-                <label for="Main Hotel">Main Hotel</label><br>
-                <input type="radio" id="Bay Hotel" name="group1" value="Bay Hotel">
-                <label for="Bay Hotel">Bay Hotel</label>
+                <select id="hotel" name="hotel">
+                    <option value="King Hotel">King Hotel</option>
+                    <option value="Queen Hotel">Queen Hotel</option>
+                    <option value="York Hotel">York Hotel</option>
+                    <option value="Lakeshore Hotel">Lakeshore Hotel</option>
+                    <option value="Main Hotel">Main Hotel</option>
+                    <option value="Bay Hotel">Bay Hotel</option>
+                </select>
                 <br><br>
-            </div>
 
-            <div id="group2">
                 <h3>Room Type</h3>
-                <input type="radio" id="Room" name="group2" value="Single">
-                <label for="Single">Single</label><br>
-                <input type="radio" id="Double" name="group2" value="Double">
-                <label for="Double">Double</label><br>
-                <input type="radio" id="Suite" name="group2" value="Suite">
-                <label for="Suite">Suite</label><br>
-                <input type="radio" id="Family" name="group2" value="Family">
-                <label for="Family">Family</label><br>
-                <input type="radio" id="Deluxe" name="group2" value="Deluxe">
-                <label for="Deluxe">Deluxe</label><br>
-                <input type="radio" id="Penthouse" name="group2" value="Penthouse">
-                <label for="Penthouse">Penthouse</label>
+                 <select id="room"  name="room">
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
+                    <option value="Family">Family</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Penthouse">Penthouse</option>
+                </select>
                 <br><br>
-            </div>
 
                 <h3>Number of People</h3>
-                <input type="text" id="numPeople" placeholder="How many people">
+                <input type="number" id="numPeople" name="numPeople" placeholder="How many people">
               
-    
                 <h3>Start to End date</h3>
                 <label for="Start">Start:</label>
                 <input type="date" id="Start" name="Start">
@@ -74,6 +60,7 @@
                 <br><br><br>
             
                 <input type="submit" value="Submit Reservation">
+                
             
             </form>
         </div>
