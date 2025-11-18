@@ -17,15 +17,15 @@
     <body>
         <h2>Check Reservation</h2>
         <h3>Enter Name on Reservation</h3>
-        <form action ="Location: ../ReservationChecker2.php" method="get">
+         <form action ="ReservationChecker2.php" method="post">
             <input type="text" name="name">
             <input type="submit">
         </form>
 <?php
 
 $conn = mysqli_connect("localhost", "root", "", "hotel_dbms");
-//$query = "select CheckInDate from Reservation where ReservationID = (select max(ReservationID)"
-$name = $_GET['name'];
+
+$name = isset($_POST['name']) ? $_POST['name'] : 'not registered';
 $sql = "SELECT * FROM RESERVATION WHERE FirstName = '$name' ";
 
 $result = mysqli_query($conn,$sql)
