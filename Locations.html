@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <style>
+        #map {  margin: auto;
+                height: 450px;
+                width: 900px;
+                padding: 50px;
+                             }
+        </style>
+
         <title>Locations</title>
-        <link rel="stylesheet" href="styles.css">
+       <link rel="stylesheet" href="styles.css">
+     
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
     </head>
     <div class="topnav">
          <a href="HTML Front page.html">Home</a>
@@ -10,7 +25,26 @@
          <a href="about_us.html">About Us</a>
          <a href="Contact Us.html">Contact</a>
          <a class="active" href="Locations.html">Locations</a>
-         <a href="login.php">Login</a>
-         <a href="index.php">Dashboard</a>
+         <a href="Login.html">Login</a>
     </div>
+<body>
+    <h1>Map of Our Locations</h1>
+    <p>We Have Locations in Oshawa, Toronto, Hamilton, Mississauga, Ottawa and Barie</p>
+     <div id="map"></div>
+<script>
+    var map = L.map('map').setView([43.94517825207291, -78.89680781962672], 15);
+    L.tileLayer('https://api.maptiler.com/maps/base-v4/{z}/{x}/{y}.png?key=4HBFdxv0LacZPEYNEZor', {
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    var marker = L.marker([43.94517825207291, -78.89680781962672]).addTo(map); // Oshawa marker
+    var marker = L.marker([43.64262432674559, -79.38767384068449]).addTo(map); // Toronto 
+    var marker = L.marker([43.262190206127386, -79.85512512870261]).addTo(map); // Hamilton
+    var marker = L.marker([43.54830129636145, -79.66165575693125]).addTo(map); // Mississauga
+    var marker = L.marker([45.423269874194105, -75.70049984962903]).addTo(map); // Ottawa
+    var marker = L.marker([44.41187311315135, -79.6689657011161]).addTo(map); // Barie
+
+</script>
+
+</body>
 </html>
