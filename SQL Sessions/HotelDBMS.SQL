@@ -54,14 +54,17 @@ CREATE TABLE Guest (
 --Reservation Table creation
 CREATE TABLE Reservation (
     ReservationID INT PRIMARY KEY,
-    GuestID INT,
-    RoomID INT,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    HotelName VARCHAR(100) NOT NULL,
+    RType VARCHAR(50),
+    NumGuests INT NOT NULL,
     CheckInDate DATE NOT NULL,
     CheckOutDate DATE NOT NULL,
-    NumGuests INT NOT NULL,
     PricePerNight DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (GuestID) REFERENCES Guest(GuestID),
-    FOREIGN KEY (RoomID) REFERENCES Room(RoomID)
+    FOREIGN KEY (RType) REFERENCES RoomType(RoomType),
+    FOREIGN Key (PricePerNight) REFERENCES Room(PricePerNight),
+	FOREIGN Key (HotelName) REFERENCES Hotel(HotelName)
 );
 --Payemnt Table creation
 CREATE TABLE Payment (
