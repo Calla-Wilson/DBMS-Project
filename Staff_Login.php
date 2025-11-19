@@ -6,8 +6,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $mysqli = require __DIR__ . "\php\Database.php";
 
-    $sql = sprintf("SELECT * FROM guest 
-                    WHERE Email = '%s'",
+    $sql = sprintf("SELECT * FROM staff 
+                    WHERE email = '%s'",
                     $mysqli->real_escape_string($_POST["Email"]));
 
     $result = $mysqli->query($sql);
@@ -15,24 +15,34 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $user = $result->fetch_assoc();
 
     if($user){
-        if(password_verify($_POST["password"], $user["Password"])){
+        if($user["Password"]===NULL){
+            session_start();
+
+            $_SESSION["user_id"] = $user["StaffID"];
+
+            header("Location: StaffDashboard.php");
+            
+        }else if(password_verify($_POST["password"], $user["Password"])){
             
             session_start();
 
-            $_SESSION["user_id"] = $user["GuestID"];
+            $_SESSION["user_id"] = $user["StaffID"];
 
-            header("Location: Dashboard.php");
-        }
-    }
+            header("Location: StaffDashboard.php");
+
+        }   
+            }
+    //}
     $is_invalid = true;
 }
+
 
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Staff Login</title>
         <link rel="stylesheet" href="styles.css">
     </head>
         <div class="topnav">
@@ -55,18 +65,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <input type="email" name="Email" placeholder="Email" required value="<?=  htmlspecialchars($_POST["Email"] ?? "" )?>">
                 <br><br>
                 <Label for="password">Password</Label>
-                <input type="password" name="password" placeholder="Password" required><br><br>
+                <input type="password" name="password" placeholder="Password"><br><br>
                 <button>Login</button>
-            
+            </form>
         </div>
-
-        <div class="signup">
-            <h2>New User?</h2>
-            <a href="Guest Sign-up.html">Sign-up Here</a>
-        </div>
-
-        <div class="Staff-sign-in">
-            <h3>Staff?</h3>
-            <a href="Staff_Login.php">Click Here</a>
-        </div>
-</html>
+    </html>

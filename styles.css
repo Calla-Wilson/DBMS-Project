@@ -128,3 +128,13 @@ form input[type=date]{
     box-sizing: border-box;
 }
 
+.Staff-sign-in{
+    background-color: rgb(119, 151, 125);
+    font-size: 125%;
+    border-radius: 8px;
+    max-width: 400px;
+    min-width: max-content;
+    color: rgb(29, 39, 30);
+    text-align: center;
+    margin: auto;
+}

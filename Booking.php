@@ -1,0 +1,99 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION["user_id"])){
+
+    $mysqli = require __DIR__ ."\php\Database.php";
+    
+    $sql = "SELECT * FROM guest WHERE GuestID = {$_SESSION["user_id"]}";
+
+    $result = $mysqli->query($sql);
+
+    $user = $result->fetch_assoc();
+
+    $sql2 = "SELECT * FROM reservation WHERE GuestID = {$_SESSION["user_id"]}";
+
+    $result2 = $mysqli->query($sql2);
+
+    $reservations = $result2->fetch_assoc();
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hotel Travel</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <div class="topnav">
+         <a href="HTML Front page.html">Home</a>
+         <a class="active" href="Booking.html">Book</a>
+         <a href="about_us.html">About Us</a>
+         <a href="Contact Us.html">Contact</a>
+         <a href="Locations.html">Locations</a>
+         <a href="login.php">Login</a>
+    </div>
+<body>
+    <div class="Reservation-Form">
+     <h2>Reservation-Form</h2>
+      <?php if (isset($user)): ?>
+            <p>Hello <?= $user["FirstName"] ?>, please fill out the form below to make a reservation.</p>
+        <div>
+             <form action="php/Rfunctions.php" method="post">
+
+                <h3>Name of Reservation</h3>
+                <label for="FName">First Name</label>
+                <br>
+                <input type="text" id="FName" name="FName" placeholder="Enter your First Name">
+                <br>
+                <label for="LName">Last Name</label>
+                <br>
+                <input type="text" id="LName" name="LName" placeholder="Enter your Last Name">
+
+                <h3>Hotel</h3>    
+                <select id="hotel" name="hotel">
+                    <option value="King Hotel">King Hotel</option>
+                    <option value="Queen Hotel">Queen Hotel</option>
+                    <option value="York Hotel">York Hotel</option>
+                    <option value="Lakeshore Hotel">Lakeshore Hotel</option>
+                    <option value="Main Hotel">Main Hotel</option>
+                    <option value="Bay Hotel">Bay Hotel</option>
+                </select>
+                <br><br>
+
+                <h3>Room Type</h3>
+                 <select id="room"  name="room">
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
+                    <option value="Family">Family</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Penthouse">Penthouse</option>
+                </select>
+                <br><br>
+
+                <h3>Number of People</h3>
+                <input type="number" id="numPeople" name="numPeople" placeholder="How many people">
+              
+                <h3>Start to End date</h3>
+                <label for="Start">Start:</label>
+                <input type="date" id="Start" name="Start">
+                <label for="End">End:</label>
+                <input type="date" id="End" name="End">
+                <br><br><br>
+            
+                <input type="submit" value="Submit Reservation">
+                
+            
+            </form>
+        </div>
+        <?php else: ?>
+                <p>Please <a href="login.php">Login</a> or <a href="Guest Sign-up.html">Sign-up to make a reservation</a></p>
+        <?php endif; ?>
+    </div>
+</div>
+
+</body>
+</html>

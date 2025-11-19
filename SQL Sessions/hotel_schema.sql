@@ -85,6 +85,8 @@ ALTER TABLE Payment MODIFY CardNum VARCHAR(20);
 
 -- Hotel Table
 
+USE Hotel_dbms;
+
 INSERT INTO Hotel VALUES
 (1, '123 King St, Oshawa', 9051234567, 'kinghotel@email.com', 'L1G7X6', 'King Hotel'),
 (2, '789 Queen St, Toronto', 4169876543, 'queenhotel@email.com', 'M5H2N2', 'Queen Hotel'),
@@ -96,12 +98,12 @@ INSERT INTO Hotel VALUES
 -- Staff Table
 
 INSERT INTO Staff VALUES
-(101, 100987654, '123 King St, Oshawa', 1, '2020-05-10', '1995-03-12', 9051234561, 'staff1@email.com'),
-(102, 100876543, '789 Queen St, Toronto', 2, '2019-03-15', '1989-07-22', 4169876541, 'staff2@email.com'),
-(103, 100765432, '100 York Rd, Hamilton', 3, '2022-10-01', '1992-12-01', 9052223341, 'staff3@email.com'),
-(104, 100654321, '400 Lakeshore Dr, Mississauga', 4, '2018-11-20', '1984-02-04', 6470001112, 'staff4@email.com'),
-(105, 100543210, '555 Main St, Ottawa', 5, '2021-07-19', '2000-06-16', 6138885551, 'staff5@email.com'),
-(106, 100432109, '920 Bay St, Barrie', 6, '2023-01-10', '1997-10-10', 7053334441, 'staff6@email.com');
+(101, 100987654, '123 King St, Oshawa', 1, '2020-05-10', '1995-03-12', 9051234561, 'staff1@email.com', 'Manager', NULL),
+(102, 100876543, '789 Queen St, Toronto', 2, '2019-03-15', '1989-07-22', 4169876541, 'staff2@email.com', 'Staff', NULL),
+(103, 100765432, '100 York Rd, Hamilton', 3, '2022-10-01', '1992-12-01', 9052223341, 'staff3@email.com', 'Staff', NULL),
+(104, 100654321, '400 Lakeshore Dr, Mississauga', 4, '2018-11-20', '1984-02-04', 6470001112, 'staff4@email.com', 'Staff', NULL),
+(105, 100543210, '555 Main St, Ottawa', 5, '2021-07-19', '2000-06-16', 6138885551, 'staff5@email.com', 'Staff', NULL),
+(106, 100432109, '920 Bay St, Barrie', 6, '2023-01-10', '1997-10-10', 7053334441, 'staff6@email.com', 'Staff', NULL);
 
 -- RoomType Table
 
