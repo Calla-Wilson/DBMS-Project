@@ -7,36 +7,28 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $mysqli = require __DIR__ . "\php\Database.php";
 
     $sql = sprintf("SELECT * FROM staff 
-                    WHERE email = '%s'",
+                    WHERE Email = '%s'",
                     $mysqli->real_escape_string($_POST["Email"]));
 
     $result = $mysqli->query($sql);
 
     $user = $result->fetch_assoc();
 
-    if($user){
-        if($user["Password"]===NULL){
+    if($user){      
+        if($user["Password"]=== NULL){
             session_start();
-
-            $_SESSION["user_id"] = $user["StaffID"];
-
+            $_SESSION["user_id"] = $user["EmployeeID"];
             header("Location: staffpcreate.php");
             
         }else if(password_verify($_POST["password"], $user["Password"])){
-            
             session_start();
-
-            $_SESSION["user_id"] = $user["StaffID"];
-
+            $_SESSION["user_id"] = $user["EmployeeID"];
             header("Location: StaffDashboard.php");
 
         }   
-            }
-    //}
-    $is_invalid = true;
-}
-
-
+            } $is_invalid = true;
+    }
+   
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <input type="email" name="Email" placeholder="Email" required value="<?=  htmlspecialchars($_POST["Email"] ?? "" )?>">
                 <br><br>
                 <Label for="password">Password</Label>
-                <input type="password" name="password" placeholder="Password"><br><br>
+                <input type="password" name="password" placeholder="Password" <?= $_POST["password"] ?? "" ?>>
                 <button>Login</button>
             </form>
         </div>

@@ -18,9 +18,9 @@
                 <h2>Please Create a password</h2>
                 <form method="post">
                     <Label for="password">Password</Label>
-                    <input type="password" name="password" placeholder="Password" required><br><br>
+                    <input type="password" name="password" placeholder="Password" required <?= htmlspecialchars($_POST["password"] ?? "" )?>>
                     <label for="password_confirm">Confirm Password</label>
-                    <input type="password" name="password_confirm" placeholder="Confirm Password" required>
+                    <input type="password" name="password_confirm" placeholder="Confirm Password" required <?= htmlspecialchars($_POST["confirm_password"] ?? "" )?>>
             
                     <button>Create Password</button>
                 </form>
@@ -29,15 +29,17 @@
 </html>
 
 <?php 
+//if($_SERVER["REQUEST_METHOD"] === "POST"){
 session_start();
 
-if(!isset($_SESSION["user_id"])){
+
+if(isset($_SESSION["user_id"])){
     
 
         if (empty($_POST["password"]) || empty($_POST["password_confirm"])){
         die("Password and confirmation are required");
     }
-        if("password" !== "password_confirm"){
+        if($_POST["password"] !== $_POST["password_confirm"]){
         die("Passwords do not match");
     }
 
@@ -45,11 +47,10 @@ if(!isset($_SESSION["user_id"])){
 
     $mysqli = require __DIR__ . "\php\Database.php";
 
-    $sql = "SELECT * FROM staff WHERE StaffID = {$_SESSION["user_id"]}";
 
     print($sql);
 
-    $sql2 = "UPDATE staff SET Password = (?) WHERE StaffID = (?)";
+    $sql2 = "UPDATE staff SET Password = ? WHERE EmployeeID = ?";
 
     $stmt = $mysqli->stmt_init();
 
@@ -73,12 +74,9 @@ if(!isset($_SESSION["user_id"])){
         }
     }
 } else {
-    header("Location: StaffDashboard.php");
+    header("Location: Staff_Login.php");
 }   
-
-
-
-
+//}
 
 
 ?>

@@ -6,7 +6,7 @@ if(isset($_SESSION["user_id"])){
 
     $mysqli = require __DIR__ ."\php\Database.php";
     
-    $sql = "SELECT * FROM staff WHERE StaffID = {$_SESSION["user_id"]}";
+    $sql = "SELECT * FROM staff WHERE EmployeeID = {$_SESSION["user_id"]}";
 
     $result = $mysqli->query($sql);
 
