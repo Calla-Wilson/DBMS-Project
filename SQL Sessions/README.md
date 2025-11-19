@@ -3,4 +3,5 @@
 2. Run `hotel_schema.sql` to create tables and insert sample data.
 3. Run `hotel_views.sql` to create all views.
 4. open the guest sign-up and create te guests there so that the password will be set.
+5. create reservations from your guest account
 

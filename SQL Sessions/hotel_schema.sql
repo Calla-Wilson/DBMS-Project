@@ -80,13 +80,13 @@ ALTER TABLE Hotel MODIFY PNumber BIGINT;
 ALTER TABLE Staff MODIFY phone BIGINT;
 ALTER TABLE Guest MODIFY Phone BIGINT;
 ALTER TABLE Payment MODIFY CardNum VARCHAR(20);
+ALTER TABLE Staff ADD Role VARCHAR(50);
+ALTER TABLE Staff ADD Password VARCHAR(100);
 
 
 -- Data input
 
 -- Hotel Table
-
-USE Hotel_dbms;
 
 INSERT INTO Hotel VALUES
 (1, '123 King St, Oshawa', 9051234567, 'kinghotel@email.com', 'L1G7X6', 'King Hotel'),
@@ -129,12 +129,12 @@ INSERT INTO Room VALUES
 -- Guest Table
 
 INSERT INTO Guest VALUES
-(301, 'John', 'Doe', '12 Elm St, Oshawa', '1980-06-18', 9055671234, 'john.doe@email.com'),
-(302, 'Jane', 'Smith', '34 Pine St, Toronto', '1992-08-07', 4167891234, 'jane.smith@email.com'),
-(303, 'Arjun', 'Patel', '56 Oak St, Hamilton', '1988-11-02', 9051112222, 'arjun.patel@email.com'),
-(304, 'Lily', 'Wong', '78 Maple St, Mississauga', '1999-09-30', 6473332222, 'lily.wong@email.com'),
-(305, 'Ahmed', 'Ali', '90 Birch St, Ottawa', '2001-04-21', 6134442211, 'ahmed.ali@email.com'),
-(306, 'Maria', 'Garcia', '101 Spruce St, Barrie', '1983-12-15', 7055551122, 'maria.garcia@email.com');
+(301, 'John', 'Doe', '12 Elm St, Oshawa', '1980-06-18', 9055671234, 'john.doe@email.com', NULL),
+(302, 'Jane', 'Smith', '34 Pine St, Toronto', '1992-08-07', 4167891234, 'jane.smith@email.com', NULL),
+(303, 'Arjun', 'Patel', '56 Oak St, Hamilton', '1988-11-02', 9051112222, 'arjun.patel@email.com', NULL),
+(304, 'Lily', 'Wong', '78 Maple St, Mississauga', '1999-09-30', 6473332222, 'lily.wong@email.com', NULL),
+(305, 'Ahmed', 'Ali', '90 Birch St, Ottawa', '2001-04-21', 6134442211, 'ahmed.ali@email.com', NULL),
+(306, 'Maria', 'Garcia', '101 Spruce St, Barrie', '1983-12-15', 7055551122, 'maria.garcia@email.com', NULL);
 
 -- Reservation Table
 
