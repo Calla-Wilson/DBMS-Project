@@ -15,25 +15,34 @@
         <a href="ReservationChecker.php">Check Reservation</a>
     </div>
     <body>
-        <h2>Check Reservation</h2>
-        <h3>Enter Name on Reservation</h3>
-         <form action ="ReservationChecker2.php" method="post">
-            <input type="text" name="name">
-            <input type="submit">
-        </form>
+        <h2>Edit Reservation</h2>
+<form action="UpdateReservation.php" method="post">
 <?php
 
 $conn = mysqli_connect("localhost", "root", "", "hotel_dbms");
 
+$a_id = isset($_POST['ReservationID']) ? $_POST['ReservationID'] : 'not registered';
 $name = isset($_POST['name']) ? $_POST['name'] : 'not registered';
-$sql = "SELECT * FROM RESERVATION WHERE FirstName = '$name' ";
+
+$a_id = $_GET['ReservationID'];
+$sql = "SELECT * FROM RESERVATION WHERE ReservationID = '$a_id' ";
 
 $result = mysqli_query($conn,$sql);
 
-?>
- 
-    </body>
-   
+while($row=mysqli_fetch_array($result)){
+      echo '<input type="text" value="'.$row['ReservationID'].'"name="ReservationID" readonly><br>';
+    echo '<h5>First Name</h5>';
+    echo '<input type="text" value="'.$row['FirstName'].'"name="FirstName"><br>';
+    echo '<h5>Last Name</h5>';
+    echo '<input type="text" value="'.$row['LastName'].'"name="LastName">';
+}
 
+?>
+
+<input type="submit" value="Update Reservation">
+
+</form>
+
+    </body>
 
 </html>
