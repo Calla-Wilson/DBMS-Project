@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
             $_SESSION["user_id"] = $user["StaffID"];
 
-            header("Location: StaffDashboard.php");
+            header("Location: staffpcreate.php");
             
         }else if(password_verify($_POST["password"], $user["Password"])){
             
