@@ -47,7 +47,8 @@ CREATE TABLE Guest(
     Addr VARCHAR(255),
     DoB VARCHAR(50),
     Phone INT,
-    Email VARCHAR(255)
+    Email VARCHAR(255),
+    Password VARCHAR(100)
 );
 
 CREATE TABLE Reservation (
