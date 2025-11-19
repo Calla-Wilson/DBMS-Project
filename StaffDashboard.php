@@ -12,12 +12,6 @@ if(isset($_SESSION["user_id"])){
 
     $user = $result->fetch_assoc();
 
-    $sql2 = "SELECT * FROM staff";
-
-    $result2 = $mysqli->query($sql2);
-
-    $user2 = $result2->fetch_assoc();
-
 }
 
 ?>
@@ -28,25 +22,6 @@ if(isset($_SESSION["user_id"])){
         <link rel="stylesheet" href="styles.css">
         <meta charset="UTF-8">
         <title>Staff Dashboard Home</title>
-
-<script>
-/*function showResult(str) {
-  if (str.length==0) {
-    document.getElementById("livesearch").innerHTML="";
-    document.getElementById("livesearch").style.border="0px";
-    return;
-  }
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("livesearch").innerHTML=this.responseText;
-      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
-    }
-  }
-  xmlhttp.open("GET","livesearch.php?q="+str,true);
-  xmlhttp.send();
-}*/
-</script>
 
     </head>
     <div class="topnav">

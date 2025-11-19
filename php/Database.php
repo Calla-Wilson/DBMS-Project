@@ -3,7 +3,7 @@
 $host = "localhost";
 $dbname = "hotel_dbms";
 $username = "root";
-$password = "DataMan0314!!";
+$password = "";
 
 $mysql = new mysqli( $host, $username, $password, $dbname);
 
